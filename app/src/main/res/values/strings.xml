@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">PixomaticProjectWeather</string>
+    <string name="c">C</string>
+    <string name="description">Description</string>
+    <string name="humidity">Humidity</string>
+    <string name="nothing">Nothing</string>
+    <string name="internet_error">Connection error , please turn on internet connection</string>
+    <string name="open_network_settings">Open Network settings</string>
+
+    <string-array name="citys">
+        <item>Select The City</item>
+        <item>Armenia,Yerevan</item>
+        <item>Russia,Moscow</item>
+        <item>USA,Washington</item>
+        <item>Georgia,Tbilisi</item>
+    </string-array>
+</resources>
