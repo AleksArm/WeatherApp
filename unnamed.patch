@@ -1,0 +1,103 @@
+Index: app/src/main/AndroidManifest.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/AndroidManifest.xml	(revision a251c93e1bc16439cbaaba83eba23545e4e4928f)
++++ app/src/main/AndroidManifest.xml	(revision )
+@@ -12,7 +12,7 @@
+         android:roundIcon="@mipmap/ic_launcher_round"
+         android:supportsRtl="true"
+         android:theme="@style/Theme.AppCompat.NoActionBar">
+-        <activity android:name=".WeatherActivity">
++        <activity android:name="highestaim.com.weather.WeatherActivity">
+             <intent-filter>
+                 <action android:name="android.intent.action.MAIN" />
+ 
+Index: app/src/main/java/highestaim/com/pixomaticprojectweather/WeatherActivity.java
+===================================================================
+--- app/src/main/java/highestaim/com/pixomaticprojectweather/WeatherActivity.java	(revision a251c93e1bc16439cbaaba83eba23545e4e4928f)
++++ app/src/main/java/highestaim/com/weather/WeatherActivity.java	(revision )
+@@ -1,4 +1,4 @@
+-package highestaim.com.pixomaticprojectweather;
++package highestaim.com.weather;
+ 
+ import android.content.ComponentName;
+ import android.content.Context;
+@@ -6,11 +6,9 @@
+ import android.content.Intent;
+ import android.net.ConnectivityManager;
+ import android.net.NetworkInfo;
+-import android.provider.Settings;
+ import android.support.v7.app.AlertDialog;
+ import android.support.v7.app.AppCompatActivity;
+ import android.os.Bundle;
+-import android.util.EventLogTags;
+ import android.view.View;
+ import android.widget.AdapterView;
+ import android.widget.Spinner;
+@@ -27,11 +25,11 @@
+ import org.json.JSONException;
+ import org.json.JSONObject;
+ 
+-import java.text.SimpleDateFormat;
+-import java.util.Calendar;
+ import java.util.HashMap;
+ import java.util.Map;
+ 
++import highestaim.com.pixomaticprojectweather.R;
++
+ public class WeatherActivity extends AppCompatActivity  {
+ 
+     private Spinner mSpinner;
+Index: .idea/vcs.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/vcs.xml	(revision )
++++ .idea/vcs.xml	(revision )
+@@ -0,0 +1,6 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="VcsDirectoryMappings">
++    <mapping directory="$PROJECT_DIR$" vcs="Git" />
++  </component>
++</project>
+\ No newline at end of file
+Index: app/src/main/res/layout/activity_weather.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout/activity_weather.xml	(revision a251c93e1bc16439cbaaba83eba23545e4e4928f)
++++ app/src/main/res/layout/activity_weather.xml	(revision )
+@@ -4,7 +4,7 @@
+     xmlns:tools="http://schemas.android.com/tools"
+     android:layout_width="match_parent"
+     android:layout_height="match_parent"
+-    tools:context="highestaim.com.pixomaticprojectweather.WeatherActivity">
++    tools:context="highestaim.com.pixomaticprojectweather.highestaim.com.weather.WeatherActivity">
+ 
+     <RelativeLayout
+         android:layout_width="match_parent"
+Index: .idea/modules.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/modules.xml	(revision a251c93e1bc16439cbaaba83eba23545e4e4928f)
++++ .idea/modules.xml	(revision )
+@@ -2,8 +2,10 @@
+ <project version="4">
+   <component name="ProjectModuleManager">
+     <modules>
+-      <module fileurl="file://$PROJECT_DIR$/PixomaticProjectWeather.iml" filepath="$PROJECT_DIR$/PixomaticProjectWeather.iml" />
++      <module fileurl="file://C:\Users\Aleks\Documents\WeatherApp\PixomaticProjectWeather.iml" filepath="C:\Users\Aleks\Documents\WeatherApp\PixomaticProjectWeather.iml" />
++      <module fileurl="file://$PROJECT_DIR$/WeatherApp.iml" filepath="$PROJECT_DIR$/WeatherApp.iml" />
+       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
++      <module fileurl="file://C:\Users\Aleks\Documents\WeatherApp\app\app.iml" filepath="C:\Users\Aleks\Documents\WeatherApp\app\app.iml" />
+     </modules>
+   </component>
+ </project>
+\ No newline at end of file
