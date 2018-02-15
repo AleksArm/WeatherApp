@@ -1,4 +1,4 @@
-package highestaim.com.pixomaticprojectweather;
+package highestaim.com.weather;
 
 import android.content.ComponentName;
 import android.content.Context;
@@ -6,11 +6,9 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
-import android.provider.Settings;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.EventLogTags;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Spinner;
@@ -27,10 +25,10 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
+
+import highestaim.com.pixomaticprojectweather.R;
 
 public class WeatherActivity extends AppCompatActivity  {
 
