@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">PixomaticProjectWeather</string>
+    <string name="app_name">ProjectWeather</string>
     <string name="c">C</string>
     <string name="description">Description</string>
     <string name="humidity">Humidity</string>
