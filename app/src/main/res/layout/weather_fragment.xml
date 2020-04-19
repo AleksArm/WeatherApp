@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_white"
+    tools:ignore="MissingConstraints"
+    tools:layout_editor_absoluteX="0dp"
+    tools:layout_editor_absoluteY="0dp">
+
+
+    <RelativeLayout
+        android:id="@+id/mainInfoContainer"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_250sdp"
+        android:layout_marginStart="@dimen/_20sdp"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:layout_marginEnd="@dimen/_20sdp"
+        android:background="@drawable/day_item_background_blue"
+        android:elevation="@dimen/_15sdp">
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Yerevan"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:textSize="30sp"
+            android:textColor="@color/background_white"
+            android:layout_centerHorizontal="true"/>
+
+        <TextView
+            android:id="@+id/celsius"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_60sdp"
+            android:layout_toEndOf="@id/degreeTextView"
+            android:text="@string/c"
+            android:textSize="12sp" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/degreeTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_25sdp"
+            android:layout_marginTop="@dimen/_50sdp"
+            android:text="20"
+            android:textSize="80sp" />
+
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/weatherImage"
+            android:layout_width="@dimen/_72sdp"
+            android:layout_height="@dimen/_72sdp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:scaleType="fitXY"
+            android:layout_marginEnd="@dimen/_25sdp"
+            android:layout_marginBottom="@dimen/_35sdp"
+            android:src="@drawable/ic_cloud_black" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/weatherType"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:includeFontPadding="false"
+            android:text="@string/rain"
+            android:textColor="@color/background_white"
+            android:textSize="20sp" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/humidityTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/weatherType"
+            android:layout_marginStart="@dimen/_15sdp"
+            android:layout_marginTop="@dimen/_25sdp"
+            android:text="@string/humidity"
+            android:textColor="@color/background_white" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/windTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/humidityTextView"
+            android:layout_marginStart="@dimen/_15sdp"
+            android:layout_marginTop="@dimen/_25sdp"
+            android:text="@string/wind"
+            android:textColor="@color/background_white" />
+
+
+    </RelativeLayout>
+
+    <com.yarolegovich.discretescrollview.DiscreteScrollView
+        android:id="@+id/cityListHorizontalCarouselRecyclerView"
+        android:layout_marginTop="@dimen/_25sdp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="119dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:dsv_orientation="horizontal" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/addNewCity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="30dp"
+        android:src="@drawable/ic_add"
+        app:backgroundTint="@color/card_back_blue_1"
+        app:tint="@android:color/white" />
+
+
+</RelativeLayout>

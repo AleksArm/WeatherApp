@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="@dimen/_150sdp">
+
+    <RelativeLayout
+        android:id="@+id/item"
+        android:layout_width="@dimen/_90sdp"
+        android:layout_height="match_parent"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:layout_marginEnd="@dimen/_10sdp"
+        android:background="@drawable/day_item_background_blue">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/cityName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:text="Yerevan"
+            android:textColor="@color/background_white" />
+
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/weatherImageView"
+            android:layout_width="@dimen/_50sdp"
+            android:layout_height="@dimen/_50sdp"
+            android:scaleType="fitXY"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_below="@id/cityName"
+            android:layout_centerHorizontal="true"
+            android:src="@mipmap/ic_broken_clouds" />
+
+
+        <TextView
+            android:id="@+id/celsius"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/weatherImageView"
+            android:layout_marginTop="8dp"
+            android:layout_toEndOf="@id/degreeTextView"
+            android:text="@string/c"
+            android:textSize="12sp" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/degreeTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/weatherImageView"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:text="20"
+            android:textSize="20sp" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/humidityTextViewTitle"
+            android:layout_width="wrap_content"
+            android:layout_below="@id/degreeTextView"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:text="Humidity"
+            android:textSize="10sp"
+            android:layout_height="wrap_content"/>
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/humidityTextView"
+            android:layout_width="wrap_content"
+            android:layout_below="@id/humidityTextViewTitle"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:text="15"
+            android:textSize="12sp"
+            android:layout_height="wrap_content"/>
+
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/feelsLikeTextViewTitle"
+            android:layout_width="wrap_content"
+            android:layout_below="@id/degreeTextView"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:text="Feels Like"
+            android:textSize="10sp"
+            android:layout_alignParentEnd="true"
+            android:layout_height="wrap_content"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/feelsLikeTextView"
+            android:layout_width="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_below="@id/humidityTextViewTitle"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_20sdp"
+            android:text="15"
+            android:textSize="12sp"
+            android:layout_height="wrap_content"/>
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

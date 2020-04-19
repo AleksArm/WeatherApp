@@ -3,4 +3,14 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+    <color name="editTextBlueBackground">#0c88fe</color>
+    <color name="background_white">#ffffff</color>
+
+
+
+    <color name="card_back_blue_1">#416EEC</color>
+    <color name="card_back_blue_2">#1D4BBB</color>
+
+    <color name="red_dark">#C5022E</color>
+    <color name="light_red">#EA1F4D</color>
 </resources>

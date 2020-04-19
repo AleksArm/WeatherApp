@@ -2,10 +2,13 @@
     <string name="app_name">ProjectWeather</string>
     <string name="c">C</string>
     <string name="description">Description</string>
-    <string name="humidity">Humidity</string>
+    <string name="humidity">Humidity %1$s</string>
     <string name="nothing">Nothing</string>
     <string name="internet_error">Connection error , please turn on internet connection</string>
     <string name="open_network_settings">Open Network settings</string>
+    <string name="select_country">Enter Place</string>
+    <string name="rain">Rain</string>
+    <string name="wind">Wind %1$s km/hours</string>
 
     <string-array name="citys">
         <item>Select The City</item>
