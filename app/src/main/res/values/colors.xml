@@ -13,4 +13,6 @@
 
     <color name="red_dark">#C5022E</color>
     <color name="light_red">#EA1F4D</color>
+
+    <color name="black">#000000</color>
 </resources>

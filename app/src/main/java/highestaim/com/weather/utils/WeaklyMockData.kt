@@ -4,18 +4,12 @@ import highestaim.com.pixomaticprojectweather.R
 import highestaim.com.weather.dto.DayInfoDto
 import highestaim.com.weather.enums.Days
 import highestaim.com.weather.enums.WeatherTypes.*
+import java.util.*
 
 object WeaklyMockData {
+
+
     fun getWeaklyMockData(): List<DayInfoDto> {
-//currentData: DayInfoDto
-
-        /*  for (days in Days.values()) {
-              inf.add(DayInfoDto(
-                  name = days.name,
-                  type =
-              ))
-          }*/
-
         return arrayListOf(
             DayInfoDto(
                 name = Days.MONDAY.name,

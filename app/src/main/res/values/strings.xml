@@ -9,6 +9,7 @@
     <string name="select_country">Enter Place</string>
     <string name="rain">Rain</string>
     <string name="wind">Wind %1$s km/hours</string>
+    <string name="add_city">Add City</string>
 
     <string-array name="citys">
         <item>Select The City</item>

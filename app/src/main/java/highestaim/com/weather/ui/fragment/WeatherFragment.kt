@@ -11,6 +11,8 @@ import highestaim.com.weather.adapter.CityWeatherIListAdapter
 import highestaim.com.weather.dto.DayInfoDto
 import highestaim.com.weather.utils.Converter
 import highestaim.com.weather.utils.WeaklyMockData
+import highestaim.com.weather.utils.onClick
+import highestaim.com.weather.utils.replaceFragment
 import highestaim.com.weather.viewmodles.WeatherViewModel
 import kotlinx.android.synthetic.main.weather_fragment.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -27,8 +29,8 @@ class WeatherFragment : BaseFragment(),
     override fun getLayoutId() = R.layout.weather_fragment
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-
-        initRecyclerView()
+        setOnFloatingButtonClickListener()
+        initWeaklyWeatherInfoRecyclerView()
     }
 
     override fun onResume() {
@@ -37,7 +39,7 @@ class WeatherFragment : BaseFragment(),
         setWeaklyWeatherInfo()
     }
 
-    private fun initRecyclerView() {
+    private fun initWeaklyWeatherInfoRecyclerView() {
         cityListHorizontalCarouselRecyclerView?.adapter = cityWeatherIListAdapter
 
         cityListHorizontalCarouselRecyclerView.setSlideOnFling(true)
@@ -53,6 +55,18 @@ class WeatherFragment : BaseFragment(),
         )
     }
 
+
+    private fun setOnFloatingButtonClickListener() {
+        addNewCity?.onClick {
+            openAddCityFragment()
+        }
+    }
+
+    private fun openAddCityFragment() {
+        replaceFragment(AddCityFragment(), true)
+    }
+
+
     private fun getCurrentWeatherInfo() {
         weatherViewModel?.getWeather("Yerevan")?.observe(viewLifecycleOwner, Observer {
             it?.weather?.get(0)?.main?.let { it1 ->
@@ -61,9 +75,6 @@ class WeatherFragment : BaseFragment(),
                     it1
                 )
             }?.let { it2 -> setInfoInMain(it2) }
-
-            //he you should use api call for 7 days of week
-            //  cityWeatherIListAdapter.updateData(Converter.weatherInfoToListDayInfoDto(it))
         })
     }
 

@@ -1,6 +1,9 @@
 package highestaim.com.weather.utils
 
 import android.content.Context
+import android.os.CountDownTimer
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.View
 import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
@@ -59,4 +62,34 @@ fun AppCompatActivity.replaceFragment(fragment: Fragment, addBackStack: Boolean)
             .replace(R.id.fragmentContainer, fragment)
             .commitAllowingStateLoss()
     }
+}
+
+class SimpleTimer<T>(millis: Long, val func: (T?) -> Unit) : CountDownTimer(millis, millis) {
+    private var param: T? = null
+    override fun onFinish() = func(param)
+
+    override fun onTick(millisUntilFinished: Long) {}
+
+    fun restart(withParam: T? = null) {
+        param = withParam
+        cancel()
+        start()
+    }
+
+}
+
+inline fun <T : EditText> T.onTextChanged(crossinline func: (orEmpty: String) -> Unit) {
+    addTextChangedListener(object : TextWatcher {
+        override fun afterTextChanged(s: Editable?) {
+
+        }
+
+        override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+
+        }
+
+        override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+            func(s?.toString().orEmpty())
+        }
+    })
 }
