@@ -12,7 +12,7 @@ object WeaklyMockData {
     fun getWeaklyMockData(): List<DayInfoDto> {
         return arrayListOf(
             DayInfoDto(
-                name = Days.MONDAY.name,
+                dayName = Days.MONDAY.name,
                 type = CLOUDS.type,
                 wind = 2.3f,
                 feelLikes = 10,
@@ -21,7 +21,7 @@ object WeaklyMockData {
                 image = R.mipmap.ic_cloudy_weather
             ),
             DayInfoDto(
-                name = Days.TUESDAY.name,
+                dayName = Days.TUESDAY.name,
                 type = RAIN.type,
                 wind = 2.5f,
                 feelLikes = 11,
@@ -30,7 +30,7 @@ object WeaklyMockData {
                 image = R.mipmap.ic_shower_rain
             ),
             DayInfoDto(
-                name = Days.WEDNESDAY.name,
+                dayName = Days.WEDNESDAY.name,
                 type = CLEAR.type,
                 wind = 2.9f,
                 feelLikes = 15,
@@ -39,7 +39,7 @@ object WeaklyMockData {
                 image = R.mipmap.ic_clear_day
             ),
             DayInfoDto(
-                name = Days.TUESDAY.name,
+                dayName = Days.TUESDAY.name,
                 type = EXTREME.type,
                 wind = 5f,
                 feelLikes = 6,
@@ -48,7 +48,7 @@ object WeaklyMockData {
                 image = R.mipmap.ic_storm_weather
             ),
             DayInfoDto(
-                name = Days.FRIDAY.name,
+                dayName = Days.FRIDAY.name,
                 type = CLOUDS.type,
                 wind = 4f,
                 feelLikes = 6,
@@ -57,7 +57,7 @@ object WeaklyMockData {
                 image = R.mipmap.ic_cloudy_weather
             ),
             DayInfoDto(
-                name = Days.SATURDAY.name,
+                dayName = Days.SATURDAY.name,
                 type = RAIN.type,
                 wind = 3f,
                 feelLikes = 4,
@@ -66,7 +66,7 @@ object WeaklyMockData {
                 image = R.mipmap.ic_shower_rain
             ),
             DayInfoDto(
-                name = Days.SUNDAY.name,
+                dayName = Days.SUNDAY.name,
                 type = SNOW.type,
                 wind = 1f,
                 feelLikes = -2,

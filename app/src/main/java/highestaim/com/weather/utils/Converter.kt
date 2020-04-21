@@ -1,10 +1,10 @@
 package highestaim.com.weather.utils
 
-import highestaim.com.pixomaticprojectweather.R
+import highestaim.com.weather.dto.CityDto
 import highestaim.com.weather.dto.DayInfoDto
 import highestaim.com.weather.enums.Days
-import highestaim.com.weather.enums.WeatherTypes.*
 import highestaim.com.weather.models.WeatherModel
+import highestaim.com.weather.utils.Utils.setWeatherImage
 
 object Converter {
 
@@ -12,7 +12,7 @@ object Converter {
         whetherInfo?.let {
             val infoDto = DayInfoDto(
                 id = it.id,
-                name = "",
+                cityName = it.name,
                 degree = it.main?.temp?.toInt() ?: 0,
                 humidity = it.main?.humidity?.toInt() ?: 0,
                 feelLikes = it.main?.feelsLike?.toInt() ?: 0,
@@ -32,7 +32,8 @@ object Converter {
             for (i in 0..6) {
                 val dayInfoDto = DayInfoDto(
                     id = it.id,
-                    name = Days.values()[i].name,
+                    dayName = Days.values()[i].name,
+                    cityName = it.name,
                     degree = it.main?.temp?.toInt() ?: 0,
                     humidity = it.main?.humidity?.toInt() ?: 0,
                     feelLikes = it.main?.feelsLike?.toInt() ?: 0,
@@ -46,14 +47,16 @@ object Converter {
         return info
     }
 
-    private fun setWeatherImage(weatherInfo: String?): Int {
-        return when (weatherInfo) {
-            RAIN.type -> R.mipmap.ic_shower_rain
-            SNOW.type -> R.mipmap.ic_snow_weather
-            EXTREME.type -> R.mipmap.ic_storm_weather
-            CLEAR.type -> R.mipmap.ic_clear_day
-            CLOUDS.type -> R.mipmap.ic_cloudy_weather
-            else -> 0
-        }
+
+    fun cityInfoToDayInfoDto(cityDto: CityDto?): DayInfoDto {
+        return DayInfoDto(
+            cityName = cityDto?.name,
+            degree = cityDto?.degree,
+            humidity = cityDto?.humidity,
+            feelLikes = cityDto?.feelLikes,
+            wind = cityDto?.wind,
+            type = cityDto?.type,
+            image = setWeatherImage(cityDto?.type)
+        )
     }
 }

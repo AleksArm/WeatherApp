@@ -6,5 +6,7 @@ data class CityDto(
     var degree: Int? = 0,
     var feelLikes: Int? = 0,
     var humidity: Int? = 0,
-    var wind: Float? = 0.0f
+    var wind: Float? = 0.0f,
+    var type: String? = null,
+    var image: Int? = null
 )

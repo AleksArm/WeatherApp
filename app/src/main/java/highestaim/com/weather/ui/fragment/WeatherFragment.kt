@@ -3,16 +3,13 @@ package highestaim.com.weather.ui.fragment
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.content.res.AppCompatResources.getDrawable
-import androidx.lifecycle.Observer
 import com.yarolegovich.discretescrollview.DiscreteScrollView
 import com.yarolegovich.discretescrollview.transform.ScaleTransformer
 import highestaim.com.pixomaticprojectweather.R
 import highestaim.com.weather.adapter.CityWeatherIListAdapter
 import highestaim.com.weather.dto.DayInfoDto
-import highestaim.com.weather.utils.Converter
-import highestaim.com.weather.utils.WeaklyMockData
-import highestaim.com.weather.utils.onClick
-import highestaim.com.weather.utils.replaceFragment
+import highestaim.com.weather.service.PreferenceService.Companion.get
+import highestaim.com.weather.utils.*
 import highestaim.com.weather.viewmodles.WeatherViewModel
 import kotlinx.android.synthetic.main.weather_fragment.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -21,7 +18,6 @@ class WeatherFragment : BaseFragment(),
     DiscreteScrollView.ScrollStateChangeListener<CityWeatherIListAdapter.MyViewHolder>,
     DiscreteScrollView.OnItemChangedListener<CityWeatherIListAdapter.MyViewHolder> {
 
-    private val weatherViewModel: WeatherViewModel? by viewModel()
 
     private val cityWeatherIListAdapter = CityWeatherIListAdapter()
 
@@ -35,7 +31,17 @@ class WeatherFragment : BaseFragment(),
 
     override fun onResume() {
         super.onResume()
-        getCurrentWeatherInfo()
+
+        if (get().getSelectedCity() != null) {
+            setInfoInMain(Converter.cityInfoToDayInfoDto(get().getSelectedCity()))
+            hideFieldsWhenCityIsNotSelected(isCitySelected = true)
+        } else {
+            hideFieldsWhenCityIsNotSelected(isCitySelected = false)
+            cityName?.text = getString(R.string.select_city_for_view_weather_info)
+        }
+
+        cityListHorizontalCarouselRecyclerView.scrollToPosition(3)
+        //weakly info set from mock data,you can set real data from any api
         setWeaklyWeatherInfo()
     }
 
@@ -67,18 +73,6 @@ class WeatherFragment : BaseFragment(),
     }
 
 
-    private fun getCurrentWeatherInfo() {
-        weatherViewModel?.getWeather("Yerevan")?.observe(viewLifecycleOwner, Observer {
-            it?.weather?.get(0)?.main?.let { it1 ->
-                Converter.weatherInfoToDayInfoDto(
-                    it,
-                    it1
-                )
-            }?.let { it2 -> setInfoInMain(it2) }
-        })
-    }
-
-
     private fun setWeaklyWeatherInfo() {
         //here we use mock data because we do not have a weakly weather info,but current day will be actual data
         cityWeatherIListAdapter.updateData(WeaklyMockData.getWeaklyMockData())
@@ -86,6 +80,7 @@ class WeatherFragment : BaseFragment(),
 
     private fun setInfoInMain(info: DayInfoDto) {
         degreeTextView?.text = info.degree.toString()
+        cityName?.text = info.cityName.toString()
         humidityTextView?.text = getString(R.string.humidity, info.humidity.toString() + " %")
         windTextView?.text = getString(R.string.wind, info.wind.toString())
         weatherType?.text = info.type
@@ -99,9 +94,18 @@ class WeatherFragment : BaseFragment(),
         })
     }
 
+    private fun hideFieldsWhenCityIsNotSelected(isCitySelected: Boolean) {
+        humidityTextView?.showIf(isCitySelected)
+        celsius?.showIf(isCitySelected)
+        humidityTextView?.showIf(isCitySelected)
+        windTextView?.showIf(isCitySelected)
+        weatherImage?.showIf(isCitySelected)
+    }
+
     override fun onCurrentItemChanged(viewHolder: CityWeatherIListAdapter.MyViewHolder?, p1: Int) {
         viewHolder?.setBackgroundRed()
-        viewHolder?.getSelectedItem()?.let { setInfoInMain(it) }
+        //if you open this commented  line,then value of days weather will be shown on main
+        //viewHolder?.getSelectedItem()?.let { setInfoInMain(it) }
     }
 
     override fun onScroll(

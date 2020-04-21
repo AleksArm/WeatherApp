@@ -5,5 +5,6 @@ enum class WeatherTypes(val type: String) {
     SNOW("Snow"),
     EXTREME("Extreme"),
     CLEAR("Clear"),
-    CLOUDS("Clouds")
+    CLOUDS("Clouds"),
+    DRIZZLE("Drizzle")
 }

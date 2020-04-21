@@ -36,6 +36,8 @@ fun View.hide() {
     visibility = View.GONE
 }
 
+fun View.showIf(condition: Boolean) = if (condition) show() else hide()
+
 inline fun <T : View> T.onClick(crossinline func: T.() -> Unit) {
     setOnClickListener { func() }
 }

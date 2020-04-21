@@ -12,12 +12,12 @@
         android:background="@drawable/day_item_background_blue">
 
         <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/cityName"
+            android:id="@+id/dayName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="@dimen/_10sdp"
-            android:text="Yerevan"
+            android:text="Mondey"
             android:textColor="@color/background_white" />
 
 
@@ -27,7 +27,7 @@
             android:layout_height="@dimen/_50sdp"
             android:scaleType="fitXY"
             android:layout_marginTop="@dimen/_10sdp"
-            android:layout_below="@id/cityName"
+            android:layout_below="@id/dayName"
             android:layout_centerHorizontal="true"
             android:src="@mipmap/ic_broken_clouds" />
 

@@ -1,6 +1,7 @@
 package highestaim.com.weather.service
 
 import android.content.Context
+import android.content.Context.*
 import android.content.SharedPreferences
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
@@ -24,14 +25,21 @@ class PreferenceService {
 
     private fun initSharedPreferences() {
         if (savedCitySharedPreferences == null) {
-            savedCitySharedPreferences = context?.getSharedPreferences("saveUserSelectedCity",
-                Context.MODE_PRIVATE
+            savedCitySharedPreferences = context?.getSharedPreferences(
+                "saveUserSelectedCity",
+                MODE_PRIVATE
+            )
+
+            savedCitiesSharedPreferences = context?.getSharedPreferences(
+                "saveRecentlySearchesShared",
+                MODE_PRIVATE
             )
         }
     }
 
     fun putSelectedCity(sortByRestaurantChain: CityDto) {
-        savedCitySharedPreferences?.edit()?.putString("selected_city", Gson().toJson(sortByRestaurantChain))?.apply()
+        savedCitySharedPreferences?.edit()
+            ?.putString("selected_city", Gson().toJson(sortByRestaurantChain))?.apply()
     }
 
 
@@ -47,20 +55,20 @@ class PreferenceService {
     }
 
     fun saveLanguage(selectedLanguage: String?, selectedLanguageIndex: Int?) {
-        val editor = context?.getSharedPreferences("lng", Context.MODE_PRIVATE)?.edit()
+        val editor = context?.getSharedPreferences("lng", MODE_PRIVATE)?.edit()
         selectedLanguageIndex?.let { editor?.putInt("saveLng", it) }
         editor?.putString("saveLngTxt", selectedLanguage)
         editor?.apply()
     }
 
     fun getLngCode(): Int? {
-        val sharedPreferencesLanguage = context?.getSharedPreferences("lng", Context.MODE_PRIVATE)
+        val sharedPreferencesLanguage = context?.getSharedPreferences("lng", MODE_PRIVATE)
         return sharedPreferencesLanguage?.getInt("saveLng", 0)
     }
 
     fun checkLanguageName(): String {
         var language = "English"
-        val sharedPreferencesLanguage = context?.getSharedPreferences("lng", Context.MODE_PRIVATE)
+        val sharedPreferencesLanguage = context?.getSharedPreferences("lng", MODE_PRIVATE)
         when (sharedPreferencesLanguage?.getInt("saveLng", -1)) {
             0, -1 ->
                 language = "English"
@@ -73,19 +81,20 @@ class PreferenceService {
     }
 
 
-    fun saveCities(sortByRestaurantChain: List<CityDto>) {
-        savedCitiesSharedPreferences?.edit()?.putString("cities", Gson().toJson(sortByRestaurantChain))?.apply()
+    fun saveRecentlySearchesCities(sortByRestaurantChain: ArrayList<CityDto>) {
+        savedCitiesSharedPreferences?.edit()
+            ?.putString("cities", Gson().toJson(sortByRestaurantChain))?.apply()
     }
 
-    fun getCities(): List<CityDto>? {
+    fun getRecentlySearchesCities(): ArrayList<CityDto>? {
         val stringData = savedCitiesSharedPreferences?.getString("cities", null)
         if (stringData != null) {
             val type = object : TypeToken<List<CityDto>>() {
             }.type
-            return gson.fromJson(stringData, type) as List<CityDto>
+            return gson.fromJson(stringData, type) as ArrayList<CityDto>
 
         }
-        return null
+        return arrayListOf()
     }
 
 

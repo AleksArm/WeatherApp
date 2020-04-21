@@ -27,7 +27,7 @@ class CityWeatherIListAdapter : RecyclerView.Adapter<CityWeatherIListAdapter.MyV
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val cityInfo = citiesInfo[position]
 
-        holder.cityName?.text = cityInfo.name
+        holder.cityName?.text = cityInfo.dayName
         holder.degreeTextView?.text = cityInfo.degree.toString()
         holder.feelLikesTextView?.text = cityInfo.feelLikes.toString()
         holder.humidityTextView?.text = cityInfo.humidity.toString() + " %"
@@ -53,7 +53,7 @@ class CityWeatherIListAdapter : RecyclerView.Adapter<CityWeatherIListAdapter.MyV
         val degreeTextView: AppCompatTextView? = itemView.degreeTextView
         val humidityTextView: AppCompatTextView? = itemView.humidityTextView
         val feelLikesTextView: AppCompatTextView? = itemView.feelsLikeTextView
-        val cityName: AppCompatTextView? = itemView.cityName
+        val cityName: AppCompatTextView? = itemView.dayName
         val weatherImageView: AppCompatImageView = itemView.weatherImageView
         private val item: RelativeLayout? = itemView.item
 
